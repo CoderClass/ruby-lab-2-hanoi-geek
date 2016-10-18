@@ -7,12 +7,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Log in successfully"
+      flash[:success] = "Sign up successfully"
       session[:user_id] = @user.id
       redirect_to users_path
     else
-      flash[:error] = "Log in failed"
-      render 'welcome/index'
+      flash[:error] = "Sign up failed"
+      render 'new'
     end
   end
 
