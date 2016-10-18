@@ -1,4 +1,3 @@
-
   <section class="header-11-sub">
       <div class="background">&nbsp;</div>
       <div class="container">
@@ -8,6 +7,15 @@
                   <p>CoderDating is the first dating website just for experienced Ruby on Rails engineers.</p>
                   <div class="signup-form">
                     <%= form_for(User.new) do |f| %>
+
+                      <% if @user.errors.any? %>
+                        <div class="alert alert-danger">
+                            <% @user.errors.full_messages.each do |msg| %>
+                            <p><%= msg %></p>
+                            <% end %>
+                        </div>
+                      <% end %>
+
                       <div class="form-group">
                         <%= f.text_field 'email', class: 'form-control', placeholder: 'Your E-mail' %>
                       </div>
@@ -19,14 +27,14 @@
                           <%= f.password_field 'password', class: 'form-control', placeholder: 'Password' %>
                         </div>
                         <div class="half-width">
-                          <%= f.password_field 'password_confirmation', class: 'form-control', placeholder: 'Confirmation' %>          
-                        </div>  
+                          <%= f.password_field 'password_confirmation', class: 'form-control', placeholder: 'Confirmation' %>
+                        </div>
                       </div>
                       <div class="form-group">
                           <%= f.submit 'Sign Up', class: 'btn btn-block btn-info' %>
-                      </div>    
+                      </div>
                     <% end %>
-                  </div>  
+                  </div>
                   <div class="additional-links">By signing up you agree to <a href="#">Terms of Use</a> and <a href="#">Privacy</a></div>
               </div>
               <div class="col-sm-7 col-sm-offset-1 player-wrapper">
@@ -37,4 +45,3 @@
           </div>
       </div>
   </section>
-
